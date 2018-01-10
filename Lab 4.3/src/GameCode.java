@@ -1,5 +1,5 @@
 /**Kaitlyn Cao & Lamia Islam
- * Lab 4.3 Button Games*/
+ * Lab 4.3 Button Games - FastClicker*/
 
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
@@ -16,13 +16,13 @@ import javafx.scene.text.Text;
 
 public class GameCode extends Application
 {
-	 private int count;
-	 
+	private int count;
+
 	private static final Integer STARTIME = 10;
 	private Timeline timeline;
 	private Label timerLabel = new Label();
 	private Integer timeSeconds = STARTIME;
-	
+
     public void start(Stage primaryStage) throws Exception 
     {
     
@@ -43,7 +43,8 @@ public class GameCode extends Application
         	System.out.println(count);
         });
         
-
+        
+        
         Text t = new Text("0");
         t.setX(10.0f);
         t.setY(50.0f);
