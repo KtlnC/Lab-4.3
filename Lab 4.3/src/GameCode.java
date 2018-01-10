@@ -5,16 +5,19 @@ import javafx.stage.Stage;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.text.Text;
 
 public class GameCode extends Application{
 	
     public void start(Stage primaryStage) throws Exception 
     {
+    
+    	
         primaryStage.setTitle("FastClicker");
- 
+        
         Group root = new Group();
     	Scene scene = new Scene(root, 200, 150);    	        
-       
+    	Text t = new Text("0");
         Button button = new Button("Click Me!");
         
         root.getChildren().add(button);
