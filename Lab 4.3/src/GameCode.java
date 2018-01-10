@@ -17,10 +17,15 @@ public class GameCode extends Application{
         
         Group root = new Group();
     	Scene scene = new Scene(root, 200, 150);    	        
-    	Text t = new Text("0");
+    	
         Button button = new Button("Click Me!");
+        Text t = new Text("0");
+        t.setX(10.0f);
+        t.setY(50.0f);
         
+        root.getChildren().add(t);
         root.getChildren().add(button);
+        
         primaryStage.setScene(scene);
         primaryStage.show();
     }
