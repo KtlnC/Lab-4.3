@@ -1,6 +1,11 @@
 /**Kaitlyn Cao & Lamia Islam
  * Lab 4.3 Button Games*/
+import java.awt.Label;
+import java.awt.event.ActionEvent;
+
+import javafx.animation.Timeline;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.stage.Stage;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -8,7 +13,10 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
 public class GameCode extends Application{
-	
+	private static final Integer STARTIME = 10;
+	private Timeline timeline;
+	private Label timerLabel = new Label();
+	private Integer timeSeconds = STARTIME;s
     public void start(Stage primaryStage) throws Exception 
     {
     
@@ -22,7 +30,7 @@ public class GameCode extends Application{
         Text t = new Text("0");
         t.setX(10.0f);
         t.setY(50.0f);
-        
+       
         root.getChildren().add(t);
         root.getChildren().add(button);
         
