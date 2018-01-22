@@ -31,13 +31,13 @@ public class GameCode extends Application
 	private int time = 10;
 	private int tim = 10;
 	private long delay = tim * 1000;
-	
-	
+	private long timeStep;
+	private boolean scoring = true;
     @SuppressWarnings("restriction")
 	public void start(Stage primaryStage) throws Exception 
     {
     
-    	
+    
         primaryStage.setTitle("FastClicker");
        
         
@@ -63,40 +63,53 @@ public class GameCode extends Application
         
         button.setOnAction(value ->
         {
-        	
+        	if(scoring)
+        	{
         	count++;
-        	System.out.println(count);
+        	}
+        	else
+        	{
+        		count--;
+        	}
+        	/*System.out.println(count);
         	String c = Integer.toString(count);
-        	t.setText(c);
+        	t.setText(c);*/
         	
         	
         	
         });
+         timeStep = System.nanoTime() + 1000000000L;
+        new AnimationTimer()
+        {
+        	public void handle(long now)
+        	{
+        		if(now>timeStep)
+        		{
+        			timeStep = now + 1000000000L;
+        			scoring = !scoring;
+        		}
+        		if(!scoring)
+        		{
+        			button.setText("Dont Click");
+        		}
+        		else
+        		{
+        			button.setText("Click Me");
+        		}
+        		t.setText(Integer.toString(count));
+        	}
+        }.start();
         
-    	}
+        
+    }
         
     
-    public static void time()
-    {
-    	Thread thread = new Thread();
-    	for(int i = 10;i>=0;i--)
-    	{
-    		try {
-				thread.sleep(1000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-    		System.out.println(i);
-    	}
-    }
+   
     public static void main(String[] args) throws InterruptedException
     {
-    	Timing timer = new Timing(10);
-    	timer.doSomething();
-    	while(timer.getSeconds()>0)
-    	{
+    	
+    	
     		Application.launch(args);
-    	}
+    	
     }
 }
