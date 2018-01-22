@@ -36,18 +36,21 @@ public class GameCode extends Application
         
         button.setLayoutX(65);
         button.setLayoutY(60);
-        
+        Text t = new Text("0");
+        t.setX(10.0f);
+        t.setY(50.0f);
         button.setOnAction(value ->
         {
         	count++;
         	System.out.println(count);
+        	String c = Integer.toString(count);
+        	t.setText(c);
+        	
         });
         
         
         
-        Text t = new Text("0");
-        t.setX(10.0f);
-        t.setY(50.0f);
+      
        
         root.getChildren().add(t);
         root.getChildren().add(button);
